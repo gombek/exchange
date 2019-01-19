@@ -3,10 +3,3 @@ export const makeAction = type => {
   actionCreator.type = type;
   return actionCreator;
 };
-
-export const makeReplaceReducer =
-  (actionCreator, initialState) =>
-    (state = initialState, action) => (
-      actionCreator.type === action.type ? action.data : state
-    );
-

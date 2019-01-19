@@ -1,9 +1,3 @@
-const wallet = new Map([
-  ['USD', { balance: 200 }],
-  ['EUR', { balance: 15 }],
-  ['PLN', { balance: 1000 }],
-]);
-
 
 const tempToReduceRequestsCount = {
   "disclaimer": "Usage subject to terms: https://openexchangerates.org/terms",
@@ -185,9 +179,15 @@ const tempToReduceRequestsCount = {
   }
 };
 
+const wallet = new Map([
+  ['USD', { balance: 200 }],
+  ['EUR', { balance: 15 }],
+  ['PLN', { balance: 1000 }],
+]);
+
 export default {
-  walletFrom: ['USD'], // locked to USD because of subscription plan.
-  walletTo: Array.from(wallet.keys()),
+  currenciesFrom: new Set(['USD']), // locked to USD because of subscription plan.
+  currencies: new Set(wallet.keys()),
   wallet,
   walletRates: new Map([
     [[tempToReduceRequestsCount.base], tempToReduceRequestsCount.rates],

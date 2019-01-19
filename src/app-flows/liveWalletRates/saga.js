@@ -13,8 +13,8 @@ function* live() {
 }
 
 function* updateRates() {
-  const from = yield select(state => state.walletFrom);
-  const to = yield select(state => state.walletTo);
+  const from = yield select(state => state.currenciesFrom);
+  const to = yield select(state => state.currencies);
   const rates = yield call(oxrApi.latest, from, to);
   yield put(walletRates.actions.set(rates));
 }
