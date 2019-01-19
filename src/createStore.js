@@ -1,8 +1,8 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { all } from 'redux-saga/effects';
-import * as modules from './../modules';
-// import * as appFlows from './flows';
+import * as modules from './modules/index';
+import * as appFlows from './app-flows/index';
 import initialState from './initialState';
 
 const sagaMiddleware = createSagaMiddleware();
@@ -29,20 +29,20 @@ const moduleSagas = Object.values(modules).reduce(
   (acc, module) => [...acc, module.saga && module.saga()],
   [],
 );
-//
-// const flowSagas = Object.values(appFlows).reduce(
-//   (acc, flow) => [...acc, flow && flow.saga && flow.saga()],
-//   [],
-// );
-//
+
+const flowSagas = Object.values(appFlows).reduce(
+  (acc, flow) => [...acc, flow && flow.saga && flow.saga()],
+  [],
+);
+
 const reducers = Object.values(modules).reduce(
   (acc, module) => ({ ...acc, [module.mountPoint]: module.reducer }),
   {},
 );
 
-// function* rootSaga() {
-//   yield all([...moduleSagas, ...flowSagas]);
-// }
+function* rootSaga() {
+  yield all([...moduleSagas, ...flowSagas]);
+}
 
 
 export default (state = {}) => {
@@ -54,6 +54,6 @@ export default (state = {}) => {
     },
     enhancer,
   );
-  // sagaMiddleware.run(rootSaga);
+  sagaMiddleware.run(rootSaga);
   return store;
 };

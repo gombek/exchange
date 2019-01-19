@@ -189,7 +189,7 @@ export default {
   walletFrom: ['USD'], // locked to USD because of subscription plan.
   walletTo: Array.from(wallet.keys()),
   wallet,
-  rates: new Map([
+  walletRates: new Map([
     [[tempToReduceRequestsCount.base], tempToReduceRequestsCount.rates],
   ]),
 };

@@ -1,3 +1,6 @@
 export default mountPoint => ({
-  get: (store, currency) => store[mountPoint].get(currency),
+  get: (store, baseCurrency) => store[mountPoint].get(baseCurrency),
+  getExchange: (store, from, to) => store[mountPoint].get(from)
+    ? store[mountPoint].get(from)[to]
+    : undefined,
 });
