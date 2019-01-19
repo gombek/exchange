@@ -1,7 +1,7 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { all } from 'redux-saga/effects';
-// import * as modules from './modules';
+import * as modules from './../modules';
 // import * as appFlows from './flows';
 import initialState from './initialState';
 
@@ -25,26 +25,25 @@ if (process.env.NODE_ENV !== 'production') {
 
 const enhancer = composeEnhancers(applyMiddleware(sagaMiddleware));
 
-// const moduleSagas = Object.values(modules).reduce(
-//   (acc, module) => [...acc, module.saga && module.saga()],
-//   [],
-// );
+const moduleSagas = Object.values(modules).reduce(
+  (acc, module) => [...acc, module.saga && module.saga()],
+  [],
+);
 //
 // const flowSagas = Object.values(appFlows).reduce(
 //   (acc, flow) => [...acc, flow && flow.saga && flow.saga()],
 //   [],
 // );
 //
-// const reducers = Object.values(modules).reduce(
-//   (acc, module) => ({ ...acc, [module.mountPoint]: module.reducer }),
-//   { ...fake },
-// );
+const reducers = Object.values(modules).reduce(
+  (acc, module) => ({ ...acc, [module.mountPoint]: module.reducer }),
+  {},
+);
 
 // function* rootSaga() {
 //   yield all([...moduleSagas, ...flowSagas]);
 // }
 
-const reducers = {};
 
 export default (state = {}) => {
   const store = createStore(
