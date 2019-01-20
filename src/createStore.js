@@ -7,6 +7,7 @@ import initialState from './initialState';
 
 const sagaMiddleware = createSagaMiddleware();
 
+/** Stuff for Redux DevTool */
 /* eslint-disable */
 const composeEnhancers =
   typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
