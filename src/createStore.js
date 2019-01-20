@@ -19,6 +19,11 @@ if (process.env.NODE_ENV !== 'production') {
     var obj = {};
     this.forEach((value, key) => obj[key] = value);
     return obj;
+  };
+  Set.prototype.toJSON = function() {
+    var arr = [];
+    this.forEach((value) => arr.push(value));
+    return arr;
   }
 }
 /* eslint-enable */

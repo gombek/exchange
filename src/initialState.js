@@ -190,6 +190,6 @@ export default {
   currencies: new Set(wallet.keys()),
   wallet,
   walletRates: new Map([
-    [[tempToReduceRequestsCount.base], tempToReduceRequestsCount.rates],
+    [tempToReduceRequestsCount.base, tempToReduceRequestsCount.rates],
   ]),
 };

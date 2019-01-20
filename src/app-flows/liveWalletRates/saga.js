@@ -3,7 +3,7 @@ import { delay } from 'redux-saga';
 
 import { oxrApi }  from '../../api';
 import { startLive, stopLive } from './actions';
-import { walletRates } from '../../modules'
+import { walletRates, currencies, currenciesFrom } from '../../modules'
 
 function* live() {
   while (true) {
@@ -13,8 +13,8 @@ function* live() {
 }
 
 function* updateRates() {
-  const from = yield select(state => state.currenciesFrom);
-  const to = yield select(state => state.currencies);
+  const from = yield select(state => currenciesFrom.selectors.get(state)[0]);
+  const to = yield select(currencies.selectors.get);
   const rates = yield call(oxrApi.latest, from, to);
   yield put(walletRates.actions.set(rates));
 }
