@@ -1,13 +1,14 @@
 import React from 'react';
 import Balance from '../../components/Balance';
-import ExchangeRate from '../../components/ExchangeRate';
+import CurrencySelect from '../../components/CurrencySelect';
+import Input from '../../components/Input';
 
-const CurrencySlide = ({currency, balance, exchangeRate, exchangeTo}) => (
-  <span>
+const CurrencySlide = ({currency, currencies, balance}) => (
+  <div>
+    <CurrencySelect activeCurrency={currency} currencies={currencies} />
+    <Input />
     <Balance value={balance} currency={currency} />
-    =
-    <ExchangeRate amount={1} rate={exchangeRate} fromCurrency={currency} toCurrency={exchangeTo}/>
-  </span>
+  </div>
 );
 
 export default CurrencySlide;
