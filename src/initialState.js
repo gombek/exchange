@@ -186,10 +186,15 @@ const wallet = new Map([
 ]);
 
 export default {
-  currenciesFrom: new Set(['USD']), // locked to USD because of API's subscription plan.
-  currencies: new Set(wallet.keys()),
   wallet,
   walletRates: new Map([
     [tempToReduceRequestsCount.base, tempToReduceRequestsCount.rates],
   ]),
+  currencies: new Set(wallet.keys()),
+  exchanger: {
+    from: 'USD',
+    to: 'EUR',
+    amount: '',
+    outcome: '',
+  }
 };

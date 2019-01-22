@@ -5,15 +5,20 @@ const getSymbol = currencyCode => currencies[currencyCode]
   ? currencies[currencyCode].symbol
   : '';
 
-const format = (value, currencyCode) => {
-  const { decimal_digits } = currencies[currencyCode] || {};
-  return value.toFixed(decimal_digits);
-};
+const getDigits = currencyCode => currencies[currencyCode]
+  ? currencies[currencyCode].decimal_digits
+  : 0;
 
-const Amount = ({value = 0, currency}) => (
+const format = (value, currency, digits) => value.toFixed(
+  digits === undefined
+    ? getDigits(currency)
+    : digits
+);
+
+const Amount = ({currency, digits, value = 0}) => (
   <span>
     <abbr>{getSymbol(currency)}</abbr>
-    {format(value, currency)}
+    {format(value, currency, digits)}
   </span>
 );
 
