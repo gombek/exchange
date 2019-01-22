@@ -33,7 +33,13 @@ const Exchanger = ({
       value={fromValue}
       balance={fromBalance}
       activeCurrency={from}
-      currencies={[from] /* Locked to USD due to the API subscription limitation */}
+      currencies={
+        /* Locked to USD due to the API subscription limitation.
+           For different currencies, the exchange rates
+           wont be fetch until the subscription upgrade.
+           Change to `currencies` to unlock. */
+        [from]
+      }
       onValueChange={onValueChange(onFromValueChange, rate)}
       onCurrencyChange={onFromCurrencyChange}
     />
