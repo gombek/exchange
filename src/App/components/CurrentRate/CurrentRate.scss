@@ -1,0 +1,11 @@
+@import "../../theme.scss";
+
+.current-rate {
+    box-sizing: border-box;
+    padding: 0.3em 1em;
+    border: 2px solid $grey-800-color;
+    background-color: $grey-900-color;
+    color: $secondary-400-color;
+    font-size: 13px;
+    border-radius: 2em;
+}

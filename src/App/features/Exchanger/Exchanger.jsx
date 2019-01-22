@@ -3,6 +3,8 @@ import CurrencyPanel from '../../components/CurrencyPanel';
 import CurrentRate from '../../components/CurrentRate';
 import Button from '../../atomics/Button';
 
+import './Exchanger.scss';
+
 const onValueChange = (handler, rate) => value => {
   if (typeof handler !== 'function') return;
   handler(value, rate);
@@ -28,7 +30,7 @@ const Exchanger = ({
   onToValueChange,
   onToCurrencyChange,
 }) => (
-  <div>
+  <div className="exchanger">
     <CurrencyPanel
       value={fromValue}
       balance={fromBalance}
@@ -43,12 +45,15 @@ const Exchanger = ({
       onValueChange={onValueChange(onFromValueChange, rate)}
       onCurrencyChange={onFromCurrencyChange}
     />
-    <CurrentRate
-      currency={from}
-      exchangeTo={to}
-      exchangeRate={rate}
-    />
+    <div className="exchanger__rate">
+      <CurrentRate
+        currency={from}
+        exchangeTo={to}
+        exchangeRate={rate}
+      />
+    </div>
     <CurrencyPanel
+      className="exchanger__to"
       value={toValue}
       balance={toBalance}
       activeCurrency={to}
@@ -56,11 +61,13 @@ const Exchanger = ({
       onValueChange={onValueChange(onToValueChange, rate)}
       onCurrencyChange={onToCurrencyChange}
     />
-    <Button
-      onClick={onSubmitHandler(onSubmit)({from, to, rate, amount: fromValue})}
-    >
-      Exchange
-    </Button>
+    <div className="exchanger__actions">
+      <Button
+        onClick={onSubmitHandler(onSubmit)({from, to, rate, amount: fromValue})}
+      >
+        Exchange
+      </Button>
+    </div>
   </div>
 );
 

@@ -182,7 +182,7 @@ const tempToReduceRequestsCount = {
 const wallet = new Map([
   ['USD', { balance: 200 }],
   ['EUR', { balance: 15 }],
-  ['PLN', { balance: 1000 }],
+  ['GBP', { balance: 1000 }],
 ]);
 
 export default {

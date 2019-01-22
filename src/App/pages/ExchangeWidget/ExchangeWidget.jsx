@@ -1,8 +1,10 @@
 import React from 'react';
 import Exchanger from '../../features/Exchanger';
 
+import './ExchangeWidget.scss';
+
 const ExchangeWidget = () => (
-  <article>
+  <article className="exchange-widget">
     <Exchanger />
   </article>
 );

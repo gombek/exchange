@@ -17,7 +17,7 @@ const format = (value, currency, digits) => value.toFixed(
 
 const Amount = ({currency, digits, value = 0}) => (
   <span>
-    <abbr>{getSymbol(currency)}</abbr>
+    <abbr>{getSymbol(currency)}&nbsp;</abbr>
     {format(value, currency, digits)}
   </span>
 );

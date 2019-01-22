@@ -1,9 +1,13 @@
 import React from 'react';
+import cx from 'classnames';
 import CurrencySelect from '../../atomics/CurrencySelect';
 import Input from '../../atomics/Input';
 import Amount from '../../atomics/Amount/Amount';
 
+import './CurrencyPanel.scss';
+
 const CurrencyPanel = ({
+  className,
   activeCurrency,
   currencies,
   balance,
@@ -11,7 +15,7 @@ const CurrencyPanel = ({
   onValueChange,
   onCurrencyChange,
 }) => (
-  <div>
+  <div className={cx('currency-panel', className)}>
     <CurrencySelect
       activeCurrency={activeCurrency}
       currencies={currencies}
