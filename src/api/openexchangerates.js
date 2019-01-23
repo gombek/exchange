@@ -1,4 +1,4 @@
-const APP_ID = '0';//'c537fb8d01784c5c872eeaed32cc0bcd';
+const APP_ID = 'c537fb8d01784c5c872eeaed32cc0bcd';
 
 /**
  * @param {string} [from] Currency code
