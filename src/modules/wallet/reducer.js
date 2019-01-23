@@ -1,5 +1,5 @@
 import initialState from './initialState';
-import { roundDown } from '../../utils';
+import { roundDown, onlyPositive } from '../../utils';
 
 const clone = state => new Map(state);
 const cloneWallet = (state, nextState) => ({ ...state, ...nextState });
@@ -18,9 +18,7 @@ export const exchange = (state, action) => {
 
   if (!fromWallet || !toWallet) return state;
 
-  const realAmount = fromWallet.balance - amount < 0
-    ? fromWallet.balance
-    : amount;
+  const realAmount = Math.min(fromWallet.balance, onlyPositive(amount));
 
   return clone(state)
     .set(from, cloneWallet(

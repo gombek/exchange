@@ -14,6 +14,7 @@ const CurrencyPanel = ({
   value,
   onValueChange,
   onCurrencyChange,
+  donor,
 }) => (
   <div className={cx('currency-panel', className)}>
     <CurrencySelect
@@ -25,7 +26,14 @@ const CurrencyPanel = ({
       value={value}
       onChange={onValueChange}
     />
-    <div className="currency-panel__balance">You have: <Amount value={balance} currency={activeCurrency} /></div>
+    <div className={cx(
+      'currency-panel__balance',
+      {
+        'currency-panel__balance--exceeded': donor && value > balance,
+      }
+    )}>
+      You have: <Amount value={balance} currency={activeCurrency} />
+    </div>
   </div>
 );
 

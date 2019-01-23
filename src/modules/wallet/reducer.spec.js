@@ -75,6 +75,15 @@ describe('wallet reducers', () => {
           data: { from: 'EUR', to: 'PLN', rate: '2', amount: 100 }
         })
       ).toEqual(initial);
+    });
+
+    it("should not allow negative amount", () => {
+      expect(
+        exchange(initial, {
+          type: 'test.5',
+          data: { from: 'EUR', to: 'PLN', rate: '2', amount: -100 }
+        })
+      ).toEqual(initial);
     })
   })
 });

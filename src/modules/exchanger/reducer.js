@@ -1,16 +1,16 @@
 import initialState from './initialState';
-import { roundDown } from '../../utils';
+import { roundDown, toNumber, onlyPositive } from '../../utils';
 
 const setFrom = (state, action) => ({ ...state, from: action.data});
 const setTo = (state, action) => ({ ...state, to: action.data});
-const setAmount = (state, action) => ({
+export const setAmount = (state, action) => ({
   ...state,
   amount: action.data.value,
-  outcome: roundDown(action.data.value * action.data.rate),
+  outcome: roundDown(onlyPositive(toNumber(action.data.value)) * action.data.rate),
 });
-const setOutcome = (state, action) => ({
+export const setOutcome = (state, action) => ({
   ...state,
-  amount: roundDown(action.data.value / action.data.rate),
+  amount: roundDown(onlyPositive(toNumber(action.data.value)) / action.data.rate),
   outcome: action.data.value,
 });
 

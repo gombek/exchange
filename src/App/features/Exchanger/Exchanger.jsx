@@ -16,6 +16,17 @@ const onSubmitHandler = handler => ({from, to, rate, amount}) => () => {
 };
 
 class Exchanger extends Component {
+  static defaultProps = {
+    startLiveRates: () => {},
+    stopLiveRates: () => {},
+    currencies: [],
+    onSubmit: () => {},
+    onFromValueChange: () => {},
+    onFromCurrencyChange: () => {},
+    onToValueChange: () => {},
+    onToCurrencyChange: () => {},
+  };
+
   componentDidMount() {
     this.props.startLiveRates();
   }
@@ -44,6 +55,7 @@ class Exchanger extends Component {
     return (
       <div className="exchanger">
         <CurrencyPanel
+          donor
           value={fromValue}
           balance={fromBalance}
           activeCurrency={from}

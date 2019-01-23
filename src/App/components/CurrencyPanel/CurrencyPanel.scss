@@ -11,5 +11,9 @@
         width: 100%;
         color: $grey-400-color;
         font-size: 12px;
+
+        &--exceeded {
+            color: $cta-500-color;
+        }
     }
 }
