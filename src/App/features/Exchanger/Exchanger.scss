@@ -1,0 +1,31 @@
+@import "../../theme.scss";
+.exchanger {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    &__from {
+        flex-grow: 1.5;
+        background-color: $grey-900-color;
+    }
+
+    &__to {
+        background-color: $grey-800-color;
+    }
+
+    &__rate {
+        box-sizing: border-box;
+        padding: 5px 10px;
+        display: flex;
+        justify-content: center;
+        background: linear-gradient(to bottom, $grey-900-color 50%, $grey-800-color 50%) bottom left repeat-x;
+    }
+
+    &__actions {
+        background-color: $grey-800-color;
+        box-sizing: border-box;
+        padding: 10px 25px 15px;
+        display: flex;
+        flex-direction: column;
+    }
+}

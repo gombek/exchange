@@ -1,0 +1,19 @@
+@import "../../theme.scss";
+
+.currency-panel {
+    box-sizing: border-box;
+    padding: 15px 5px 15px 15px;
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+
+    &__balance {
+        width: 100%;
+        color: $grey-400-color;
+        font-size: 12px;
+
+        &--exceeded {
+            color: $cta-500-color;
+        }
+    }
+}
