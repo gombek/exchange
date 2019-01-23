@@ -5,6 +5,7 @@
     flex: 1;
 
     &__from {
+        flex-grow: 1.5;
         background-color: $grey-900-color;
     }
 

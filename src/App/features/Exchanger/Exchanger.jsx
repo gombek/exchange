@@ -55,6 +55,7 @@ class Exchanger extends Component {
     return (
       <div className="exchanger">
         <CurrencyPanel
+          className="exchanger__from"
           donor
           value={fromValue}
           balance={fromBalance}

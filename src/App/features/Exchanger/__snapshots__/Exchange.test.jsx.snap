@@ -5,7 +5,7 @@ exports[`Exchanger feature renders without crashing 1`] = `
   className="exchanger"
 >
   <div
-    className="currency-panel"
+    className="currency-panel exchanger__from"
   >
     <div
       className="currency-select"
