@@ -25,7 +25,7 @@ const CurrencyPanel = ({
       value={value}
       onChange={onValueChange}
     />
-    <div>You have <Amount value={balance} currency={activeCurrency} /></div>
+    <div className="currency-panel__balance">You have: <Amount value={balance} currency={activeCurrency} /></div>
   </div>
 );
 

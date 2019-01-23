@@ -1,4 +1,5 @@
 import initialState from './initialState';
+import { roundDown } from '../../utils';
 
 const clone = state => new Map(state);
 const cloneWallet = (state, nextState) => ({ ...state, ...nextState });
@@ -31,7 +32,7 @@ export const exchange = (state, action) => {
     .set(to, cloneWallet(
       toWallet,
       {
-        balance: toWallet.balance + realAmount * rate,
+        balance: toWallet.balance + roundDown(realAmount * rate),
       },
     ))
 };

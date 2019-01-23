@@ -11,7 +11,9 @@
     cursor: pointer;
     box-shadow: 0 3px 15px rgba($cta-400-color, 0.3);
     transition: background-color 0.2s;
+    outline: none;
 
+    &:focus,
     &:hover {
         background-color: $cta-500-color;
     }

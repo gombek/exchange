@@ -1,15 +1,16 @@
 import initialState from './initialState';
+import { roundDown } from '../../utils';
 
 const setFrom = (state, action) => ({ ...state, from: action.data});
 const setTo = (state, action) => ({ ...state, to: action.data});
 const setAmount = (state, action) => ({
   ...state,
   amount: action.data.value,
-  outcome: action.data.value * action.data.rate,
+  outcome: roundDown(action.data.value * action.data.rate),
 });
 const setOutcome = (state, action) => ({
   ...state,
-  amount: action.data.value / action.data.rate,
+  amount: roundDown(action.data.value / action.data.rate),
   outcome: action.data.value,
 });
 

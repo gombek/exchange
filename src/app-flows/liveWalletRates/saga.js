@@ -1,8 +1,8 @@
 import { takeLatest, take, put, call, cancel, select } from 'redux-saga/effects';
 import { delay } from 'redux-saga';
 
+import actions from './actions';
 import { oxrApi }  from '../../api';
-import { startLive, stopLive } from './actions';
 import { walletRates, currencies, exchanger } from '../../modules'
 
 function* live() {
@@ -21,8 +21,8 @@ function* updateRates() {
 
 export function* saga() {
   while (true) {
-    const liveRatesTask = yield takeLatest(startLive.type, live);
-    yield take(stopLive.type);
+    const liveRatesTask = yield takeLatest(actions.startLive.type, live);
+    yield take(actions.stopLive.type);
     yield cancel(liveRatesTask);
   }
 }

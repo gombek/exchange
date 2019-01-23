@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import Exchanger from './Exchanger';
 import { wallet, currencies, walletRates, exchanger } from '../../../modules';
+import { liveWalletRates } from '../../../app-flows';
 
 
 const mapStateToProps = (state) => {
@@ -20,6 +21,12 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = dispatch => ({
+  startLiveRates() {
+    dispatch(liveWalletRates.actions.startLive());
+  },
+  stopLiveRates() {
+    dispatch(liveWalletRates.actions.stopLive());
+  },
   onFromValueChange(value, rate) {
     dispatch(exchanger.actions.setAmount({value, rate}));
   },

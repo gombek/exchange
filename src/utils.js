@@ -3,3 +3,5 @@ export const makeAction = type => {
   actionCreator.type = type;
   return actionCreator;
 };
+
+export const roundDown = value => Math.floor(value * 100) / 100;
